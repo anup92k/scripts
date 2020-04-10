@@ -11,6 +11,5 @@ The uptime in second is passed to whatever performance data processing it has co
 
 Some improvement can be donne.
 Here is my task list :
-- [x] Get uptime through performance data
 - [ ] Add help
 - [ ] Allow to add warning and critical threshold
