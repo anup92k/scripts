@@ -112,14 +112,10 @@ if [ $? -ne 0 ] ; then
 	exit 3
 fi
 
-parsing_data $IWLIST_RESULT > $PARSING_RESULT
+parsing_data $IWLIST_RESULT | grep $2 > $PARSING_RESULT
 script_result=$(extract_data $PARSING_RESULT)
 
-remove_temp_files \
-    $IWLIST_RESULT \
-    $PARSING_RESULT \
-    $CHANNEL_LIST \
-    $CHANNEL_PERFDATA
+remove_temp_files $IWLIST_RESULT $PARSING_RESULT $CHANNEL_LIST $CHANNEL_PERFDATA
 
 echo $script_result
 
