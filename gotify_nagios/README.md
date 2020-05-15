@@ -19,7 +19,7 @@ Some testing example :
 ./gotify_nagios.sh MYTOKEN https://gotify.example.com Service "RECOVERY" "OK" "MyServer" "Wordpress" "HTTP OK: HTTP/1.1 200 OK - 30978 bytes in 0.095 second response time"
 ```
 
-Which result in :
+Which result in :  
 ![](example_result.png)
 
 
