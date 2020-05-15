@@ -2,7 +2,7 @@
 ### Description
 
 This plugin was made in order to send Nagios notification
-using [Gotify](https://gotify.net) using cURL.
+using [Gotify](https://gotify.net) with cURL.
 
 ```
 Usage: gotify_nagios.sh [-h|--help] [-v|--version] <token> <url> <object_type> <notification_type> <state> <host_name> <description> <output>
