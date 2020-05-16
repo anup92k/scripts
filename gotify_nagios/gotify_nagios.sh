@@ -189,9 +189,14 @@ _message+="$_arg_output"
 
 
 # Finally cURLing !
-curl "${_arg_url}/message?token=${_arg_token}" -F "title=${_title}" -F "message=${_message}" -F "priority=10"
+curl_http_result=$(curl "${_arg_url}/message?token=${_arg_token}" -F "title=${_title}" -F "message=${_message}" -F "priority=10" --output /dev/null --silent --write-out %{http_code})
 if [[ $? -ne 0 ]]; then
   _PRINT_HELP=no die "FATAL ERROR: cURL command failed !" 5
+fi
+
+# Check HTTP return code ("200" is OK)
+if [[ $curl_http_result -ne 200 ]]; then
+  _PRINT_HELP=no die "FATAL ERROR: API call failed ! Return code is $curl_http_result instead of 200." 6
 fi
 
 exit 0
