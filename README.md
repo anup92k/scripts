@@ -1,10 +1,6 @@
-## Nagios plugins
+## My Scripts
 
-Nagios plugins I made for my personnal use
+My personnal collection of scripts.
 
-I made them mostly for these reasons :
-
-* Because of the lack of plugins with performance data  
-  *My Nagios data are transmitted to an InfluxDB and displayed in Grafana*
-* Because I can't find plugins that do what I'm looking for
-* Combination of reasons above
+Some of them got a related article in my website 
+[Scrample](https://www.scrample.xyz) (in french).
