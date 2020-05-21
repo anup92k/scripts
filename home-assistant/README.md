@@ -26,7 +26,7 @@ HAVENV="/srv/homeassistant/bin/activate"
 GOTIFYURL="https://gotify.blablabla.mu"
 GOTIFYTOKEN="Az3rTy" # Your token here
 ```
-![](update_gotify.png)
+![](update_gotifyfull.png)
 
 [Mon article sur Gotify](https://www.scrample.xyz/gotify-service-de-notifications/)
 
