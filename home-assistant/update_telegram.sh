@@ -10,6 +10,13 @@ HADIR="/home/homeassistant/.homeassistant"
 NOTIFY=$(which telegram-notify)
 source /srv/homeassistant/bin/activate
 
+
+# Do you have jq ?
+if [[ $(command -v jq >/dev/null 2>&1) ]]; then
+  echo "FATAL ERROR: This script require jQuery (jq) !"
+  exit 1
+fi
+
 if [[ -z $NOTIFY ]]; then
     echo "Telegram Notification (telegram-notify) not available"
     exit 1
@@ -24,7 +31,7 @@ find $HADIR -type f -name "*-update-log.txt" -exec rm -f '{}' \;
 
 # 1. Upgrade HA
 
-$NOTIFY --icon 25B6 --text "Update started from $(hass --version)"
+$NOTIFY --icon 25B6 --text "Update started from $(hass --version) to $(curl --silent -L https://pypi.python.org/pypi/homeassistant/json | jq .info.version | sed 's/\"//g')"
 echo "----------------- HA Update -----------------" | tee $HADIR/$DATE-update-log.txt
 
 set -o pipefail # Get non-zero status of the pipeline if it append

@@ -21,6 +21,12 @@ if [[ $(command -v curl >/dev/null 2>&1) ]]; then
   exit 1
 fi
 
+# Do you have jq ?
+if [[ $(command -v jq >/dev/null 2>&1) ]]; then
+  echo "FATAL ERROR: This script require jQuery (jq) !"
+  exit 1
+fi
+
 # Test Gotify server connexion (health check)
 curl_http_result=$(curl "${GOTIFYURL}/health?token=${GOTIFYTOKEN}" --output /dev/null --silent --write-out %{http_code})
 if [[ $? -ne 0 ]]; then
@@ -34,16 +40,13 @@ if [[ $curl_http_result -ne 200 ]]; then
 fi
 
 
-
-# Make telegram notification on the HA group
-NOTIFY="$NOTIFY --config $HADIR/.telegram-notify.conf"
-
 # Remove old update log file
 find $HADIR -type f -name "*-update-log.txt" -exec rm -f '{}' \;
 
 
 # 1. Upgrade HA
-MESSAGE="▶️ Started from $(hass --version)"
+
+MESSAGE="▶️ Started from $(hass --version) to $(curl --silent -L https://pypi.python.org/pypi/homeassistant/json | jq .info.version | sed 's/\"//g')"
 curl "${GOTIFYURL}/message?token=${GOTIFYTOKEN}" -F "title=${TITLE}" -F "message=${MESSAGE}" -F "priority=8"
 
 echo "----------------- HA Update -----------------" | tee $HADIR/$DATE-update-log.txt
