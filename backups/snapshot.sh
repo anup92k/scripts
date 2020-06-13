@@ -5,9 +5,6 @@ export LANG=en_US.UTF-8
 GOTIFY_URL="https://gotify.blablabla.mu"
 GOTIFY_TOKEN="Az3rTy" # Your token here
 
-backupDirectory="$backupStorage/$serverName/backup"
-snapshotDirectory="$backupStorage/$serverName/snapshot"
-
 # Handling options
 while getopts "S:b:h" option
 do
@@ -37,8 +34,12 @@ do
     esac
 done
 
+
+backupDirectory="$backupStorage/$serverName/backup"
+snapshotDirectory="$backupStorage/$serverName/snapshot"
+
 # Testing correct number of argument
-if [ $# -ne 5 ]; then
+if [ $# -ne 4 ]; then
     echo "Not right number of argument"
     echo "Use option '-h' for help"
     exit 1
@@ -62,7 +63,6 @@ if [[ $curlHttpResult -ne 200 ]]; then
   echo -e "FATAL ERROR: API call failed ! Return code is $curlHttpResult instead of 200."
   exit 4
 fi
-
 
 # Gotify messages title
 GOTIFY_TITLE="💾 $serverName Snapshot"
