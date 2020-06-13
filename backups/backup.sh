@@ -101,7 +101,7 @@ curl "${GOTIFY_URL}/message?token=${GOTIFY_TOKEN}" \
 
 
 # Rsync (￢‿￢ )
-rsync --archive --stats --human-readable --relative --delete -e ssh \
+rsync --archive --stats --human-readable --exclude /var/lib/docker/overlay2/ --relative --delete -e ssh \
       root@$serverIP:{$serverDirectory} $backupDirectory | tee $backupDirectory/backup-$currentDate.txt
 
 
