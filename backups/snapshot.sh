@@ -119,8 +119,7 @@ fi
 
 tarFileSize=$(du -h $snapshotDirectory/snapshot-$backupDate.tgz | awk '{print $1}')
 
-# Telegram finished notification with rsync stats as attachement
-$NOTIFY --success --text "$serverName snapshot of $backupDate completed with a file of $tarFileSize"
+# Gotify finished notification with rsync stats as attachement
 message="☑️ Finished snapshot of $backupDate with a file of $tarFileSize"
 curl "${GOTIFY_URL}/message?token=${GOTIFY_TOKEN}" \
      -F "title=${GOTIFY_TITLE}" \
