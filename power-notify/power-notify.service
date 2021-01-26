@@ -1,0 +1,12 @@
+[Unit]
+Description=Power Notify
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/power-notify.sh up
+ExecStop=/usr/local/sbin/power-notify.sh down
+
+[Install]
+WantedBy=multi-user.target
