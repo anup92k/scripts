@@ -38,7 +38,7 @@ and
 {{< image src="/2020/04-17/hello/2.gif" caption="Hello" title=" " >}}
 ```
 
-This mean the images paths are :
+This means the images paths are :
 ```
 static/path/to/images/un.png
 static/path/to/images/one.jpg
@@ -68,7 +68,7 @@ Update the variable `HUGO_ROOT` on line 12 to hugo site folder
 *With so, you don't need to place the script inside the Hugo folder.*
 
 You may also want to change the conversion parameters (see line 15).  
-Make shure to specify something that will work with `cwebp` and `gif2webp`.
+Make sure to specify something that will work with `cwebp` and `gif2webp`.
 
 
 Run the script !
