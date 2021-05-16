@@ -5,6 +5,15 @@ export LANG=en_US.UTF-8
 GOTIFY_URL="https://gotify.blablabla.mu"
 GOTIFY_TOKEN="Az3rTy" # Your token here
 
+# Configuration file
+FILE_CONF="/etc/gotify-notify.conf"
+
+# Handling configuration file (if present)
+if [[ -f "${FILE_CONF}" ]]; then
+  GOTIFY_URL=$(grep "server-url=" $FILE_CONF | cut -d'=' -f2)
+  GOTIFY_TOKEN=$(grep "access-token=" $FILE_CONF | cut -d'=' -f2)
+fi
+
 # Handling options
 while getopts "S:H:b:d:h" option
 do

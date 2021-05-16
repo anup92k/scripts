@@ -25,9 +25,19 @@ If you use `update_dc_containers.sh`,
 don't forget to update thoses variables in the script :
 
 * `DC_FOLDERS`
-* `GOTIFY_URL`
-* `GOTIFY_TOKEN`
+* `GOTIFY_URL` (unnecessary if using configuration file : see below)
+* `GOTIFY_TOKEN` (unnecessary if using configuration file : see below)
 
 And optionally :
 
 * `GOTIFY_TITLE`
+
+
+### Configuration file (optional)
+
+Copy `gotify-notify.conf` to the `/etc/` folder or be lazy :
+```
+wget https://raw.githubusercontent.com/anup92k/scripts/master/docker/gotify-notify.conf -O /etc/gotify-notify.conf
+```
+
+Don't forget to update it with your personnal credentials !

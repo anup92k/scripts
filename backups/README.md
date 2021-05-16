@@ -7,8 +7,8 @@ folder with Rsync. It send notification using
 In scripts whose names are singular, 
 don't forget to update thoses variables :
 
-* `GOTIFY_URL`
-* `GOTIFY_TOKEN`
+* `GOTIFY_URL` (unnecessary if using configuration file : see below)
+* `GOTIFY_TOKEN` (unnecessary if using configuration file : see below)
 
 I run those scripts with scheduled tasks on my 
 Synology NAS. This is why you can see some weird stuff 
@@ -22,6 +22,16 @@ and `snapshots.sh` the next day.
 Further explanation 
 [here](https://www.scrample.xyz/sauvegarde-avec-rsync/) 
 (but in french) with the original Telegram based notifications scripts.
+
+
+### Configuration file (optional)
+
+Copy `gotify-notify.conf` to the `/etc/` folder or be lazy :
+```
+wget https://raw.githubusercontent.com/anup92k/scripts/master/backups/gotify-notify.conf -O /etc/gotify-notify.conf
+```
+
+Don't forget to update it with your personnal credentials !
 
 
 ### Rsync
