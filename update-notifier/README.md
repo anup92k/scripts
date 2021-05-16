@@ -18,7 +18,7 @@ Don't forget to update it with your personnal credentials !
 
 #### Script
 ```
-wget https://raw.githubusercontent.com/anup92k/scripts/master/power-notify/my-unattended-upgrades-notify.sh -O /usr/local/sbin/my-unattended-upgrades-notify.sh
+wget https://raw.githubusercontent.com/anup92k/scripts/master/update-notifier/my-unattended-upgrades-notify.sh -O /usr/local/sbin/my-unattended-upgrades-notify.sh
 chmod u+x /usr/local/sbin/my-unattended-upgrades-notify.sh
 ```
 
