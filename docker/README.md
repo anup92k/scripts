@@ -32,6 +32,11 @@ And optionally :
 
 * `GOTIFY_TITLE`
 
+Update (2021-12-28) :  
+If you run this script using any argument 
+(ex : `update_dc_containers.sh lol`), 
+it will only work on the current directory
+
 
 ### Configuration file (optional)
 

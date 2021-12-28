@@ -40,6 +40,12 @@ fi
 # Temp out file
 outputFile="$(mktemp)"
 
+# Allow working only into the current folder
+# if any argument is used to run the script
+if [[ $# -ne 0 ]]; then
+  DC_FOLDERS="."
+fi
+
 # Find Docker Compose files
 composeConfig=$(find $DC_FOLDERS -type f -name "docker-compose.yml" -o -name "docker-compose.yaml" | xargs echo)
 if [[ -z "$composeConfig" ]]; then
