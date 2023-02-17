@@ -14,8 +14,9 @@ If you just want a simple script :
 composeConfig=$(find . -type f -name "docker-compose.yml" -o -name "docker-compose.yaml" | xargs echo)
 
 for i in $composeConfig; do
-  docker-compose --file "$i" pull --quiet
-  docker-compose --file "$i" up --detach --remove-orphans --quiet-pull
+  cd $(dirname -- $i)
+  docker-compose pull --quiet
+  docker-compose up --detach --remove-orphans --quiet-pull
 done
 
 docker image prune --force
@@ -36,6 +37,10 @@ Update (2021-12-28) :
 If you run this script using any argument 
 (ex : `update_dc_containers.sh lol`), 
 it will only work on the current directory
+
+Update (2023-02-18) :  
+Make it work in directory so file like `docker-compose.override.yml` 
+will be processed too.
 
 
 ### Configuration file (optional)

@@ -68,19 +68,20 @@ curl "${GOTIFY_URL}/message?token=${GOTIFY_TOKEN}" \
      --output /dev/null --silent
 
 for i in $composeConfig; do
+  # Go to folder location
+  cd $(dirname -- $i)
   # Pull current Docker Compose images
-  ## Pull without printing progress information
-  docker-compose --file "$i" pull --quiet &>> $outputFile
+  docker-compose pull --quiet
   # Builds, (re)creates, starts containers
   ## Run containers in the background
   ## Remove containers for services not defined in the Compose file.
   ## Pull without printing progress information
-  docker-compose --file "$i" up --detach --remove-orphans --quiet-pull &>> $outputFile
+  docker-compose up --detach --remove-orphans --quiet-pull
 done
 
 # Remove all dangling images
 ## Do not prompt for confirmation
-docker image prune --force &>> $outputFile
+docker image prune --force | tee $outputFile
 
 # Sending result to Gotify
 curl "${GOTIFY_URL}/message?token=${GOTIFY_TOKEN}" \
