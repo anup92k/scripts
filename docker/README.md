@@ -15,8 +15,8 @@ composeConfig=$(find . -type f -name "docker-compose.yml" -o -name "docker-compo
 
 for i in $composeConfig; do
   cd $(dirname -- $i)
-  docker-compose pull --quiet
-  docker-compose up --detach --remove-orphans --quiet-pull
+  docker compose pull --quiet
+  docker compose up --detach --remove-orphans --quiet-pull
 done
 
 docker image prune --force
@@ -41,6 +41,9 @@ it will only work on the current directory
 Update (2023-02-18) :  
 Make it work in directory so file like `docker-compose.override.yml` 
 will be processed too.
+
+Update (2023-05-04) :  
+Update to Compose V2.
 
 
 ### Configuration file (optional)

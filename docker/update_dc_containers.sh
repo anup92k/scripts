@@ -71,12 +71,12 @@ for i in $composeConfig; do
   # Go to folder location
   cd $(dirname -- $i)
   # Pull current Docker Compose images
-  docker-compose pull --quiet
+  docker compose pull --quiet
   # Builds, (re)creates, starts containers
   ## Run containers in the background
   ## Remove containers for services not defined in the Compose file.
   ## Pull without printing progress information
-  docker-compose up --detach --remove-orphans --quiet-pull
+  docker compose up --detach --remove-orphans --quiet-pull
 done
 
 # Remove all dangling images
