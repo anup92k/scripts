@@ -20,7 +20,7 @@ fi
 
 # Server info
 server_name=$(uname -n)
-updates_available=$(cat /var/lib/update-notifier/updates-available | awk NF | grep -v apt)
+updates_available=$(cat /var/lib/update-notifier/updates-available | grep -e ^[0-9])
 release=$(lsb_release -d | cut -d$'\t' -f2)
 
 
