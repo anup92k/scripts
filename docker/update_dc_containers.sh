@@ -81,7 +81,7 @@ done
 
 # Remove all dangling images
 ## Do not prompt for confirmation
-docker image prune --force | tee $outputFile
+docker image prune --force | grep untagged | tee $outputFile
 
 # Sending result to Gotify
 curl "${GOTIFY_URL}/message?token=${GOTIFY_TOKEN}" \
