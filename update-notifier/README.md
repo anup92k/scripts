@@ -31,7 +31,7 @@ don't forget to update thoses variables :
 
 #### Cron
 
-I run this script every day at 8 o'clock on my servers using `cron`.
+I run this script every day at 8 o'clock on my servers using `sudo crontab -e`.
 
 Here is my definition :
 ```
