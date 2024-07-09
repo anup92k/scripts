@@ -47,7 +47,11 @@ if [[ $# -ne 0 ]]; then
 fi
 
 # Find Docker Compose files
-composeConfig=$(find $DC_FOLDERS -type f -name "docker-compose.yml" -o -name "docker-compose.yaml" | xargs echo)
+composeConfig=$(find $DC_FOLDERS -type f \
+                -name "docker-compose.yml" -o \
+                -name "docker-compose.yaml" -o \
+                -name "compose.yml" -o \
+                -name "compose.yaml" | xargs echo)
 if [[ -z "$composeConfig" ]]; then
   message="No Docker Compose files found in $DC_FOLDERS"
   curl "${GOTIFY_URL}/message?token=${GOTIFY_TOKEN}" \
