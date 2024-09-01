@@ -6,11 +6,11 @@ This plugin is made to parse the value of the `sensors` command.
 
 The arguments needed to run this script are :
 
-.1 Line filter
-.2 Matching n's value (when filter got multiple result)
-.3 Temperature position on line
-.4 Warning level
-.5 Critical level
+1. Line filter
+2. Matching n's value (when filter got multiple result)
+3. Temperature position on line
+4. Warning level
+5. Critical level
 
 This can be difficult to understand so look at the exemples below.
 
