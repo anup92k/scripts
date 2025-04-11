@@ -4,6 +4,8 @@ The purpose of this script is to get a notification
 about available updates using 
 [Gotify](https://gotify.net) with cURL.
 
+Update (2025/04/11) : Notify if reboot is required !
+
 
 ### Installation
 #### Configuration file (optional)

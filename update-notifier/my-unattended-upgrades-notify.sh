@@ -37,6 +37,14 @@ title="$server_name ($release)"
 ## Message
 message="$updates_available"
 
+
+# Append message if reboot is required
+if [ -f /var/run/reboot-required ]; then
+  message="${message}
+$(cat /var/run/reboot-required)"
+fi
+
+
 # Finally cURLing !
 curl_http_result=$(curl "${GOTIFY_URL}/message?token=${GOTIFY_TOKEN}" -F "title=${title}" -F "message=${message}" -F "priority=5" --output /dev/null --silent --write-out %{http_code})
 if [[ $? -ne 0 ]]; then
