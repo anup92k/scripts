@@ -91,7 +91,7 @@ As you can see from the commands, I stored this script in the Nagios scripts dir
 
 So, you may install it this way :
 ```bash
-wget https://raw.githubusercontent.com/anup92k/nagios-plugins/master/gotify_nagios/gotify_nagios.sh
+wget https://raw.githubusercontent.com/anup92k/scripts/master/nagios-plugins/gotify_nagios/gotify_nagios.sh
 sudo cp gotify_nagios.sh /usr/local/nagios/libexec
 sudo chown nagios:nagios /usr/local/nagios/libexec/gotify_nagios.sh
 sudo chmod u+x /usr/local/nagios/libexec/gotify_nagios.sh
